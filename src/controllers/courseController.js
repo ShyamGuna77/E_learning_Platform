@@ -143,3 +143,7 @@ const deleteCourse = catchAsync(async (req, res, next) => {
     data: {},
   });
 });
+
+
+module.exports = {createCourse,getCourse,getCourses,updateCourse,deleteCourse}
+
