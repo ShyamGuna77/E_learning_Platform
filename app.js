@@ -24,7 +24,7 @@ app.use(cors())
 
 //using helmet for security Headers
 
-// app.use(helmet())
+app.use(helmet())
 
 
 const limiter = rateLimit({
@@ -33,7 +33,7 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
-// app.use(limiter);
+app.use(limiter);
 
 //Routers
 
