@@ -14,6 +14,7 @@ const {AppError} = require('../middleware/errorHandler')
 // @access  Public
 
 const register = catchAsync(async(req,res,next)=>{
+   console.log("🔹 Register API hit with data:", req.body); 
     const {username,email,password,role} = req.body
 
     const userExists = await User.findOne({email});
@@ -40,6 +41,7 @@ const register = catchAsync(async(req,res,next)=>{
             token:generateToken(user._id)
         })
     }else{
+      console.log("❌ Failed to create user");
         return next(new AppError("Invalid user Details",400))
     }
 

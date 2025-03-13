@@ -1,7 +1,7 @@
 
 
 const {z} = require('zod')
-const { password } = require('../models/User')
+
 
 const registerSchema = z.object({
     body:z.object({
