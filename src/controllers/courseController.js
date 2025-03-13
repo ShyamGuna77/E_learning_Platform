@@ -103,3 +103,43 @@ const getCourse = catchAsync(async (req, res, next) => {
   });
 });
 
+// @desc    Update course
+// @route   PUT /api/courses/:id
+// @access  Private/Admin
+const updateCourse = catchAsync(async (req, res, next) => {
+  let course = await Course.findById(req.params.id);
+  
+  if (!course) {
+    return next(new AppError(`Course not found with id of ${req.params.id}`, 404));
+  }
+
+  course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    data: course,
+  });
+});
+
+
+
+// @desc    Delete course
+// @route   DELETE /api/courses/:id
+// @access  Private/Admin
+const deleteCourse = catchAsync(async (req, res, next) => {
+  const course = await Course.findById(req.params.id);
+  
+  if (!course) {
+    return next(new AppError(`Course not found with id of ${req.params.id}`, 404));
+  }
+
+  await course.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    data: {},
+  });
+});
