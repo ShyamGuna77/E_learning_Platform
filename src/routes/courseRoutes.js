@@ -10,7 +10,7 @@ const {
   deleteCourse,
 } = require("../controllers/courseController");
 const { protect, adminOnly } = require("../middleware/auth");
-const validate = require("../middleware/validate");
+const {validate} = require("../middleware/validate");
 const {
   courseSchema,
   courseIdSchema,
