@@ -41,7 +41,7 @@ const register = catchAsync(async(req,res,next)=>{
             token:generateToken(user._id)
         })
     }else{
-      console.log("❌ Failed to create user");
+      console.log(" Failed to create user");
         return next(new AppError("Invalid user Details",400))
     }
 
