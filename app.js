@@ -13,6 +13,7 @@ ConnectDB();
 
 //Routes
 const authRoutes = require('./src/routes/authRoutes')
+const courseRoutes = require('./src/routes/courseRoutes')
 
 const app = express()
 
@@ -37,7 +38,7 @@ app.use(limiter);
 //Routers
 
 app.use('/api/auth',authRoutes)
-app.use('api/courses',courseRoutes)
+app.use('/api/courses',courseRoutes)
 
 // Health check endpoint
 app.get('/health', (req, res) => {
