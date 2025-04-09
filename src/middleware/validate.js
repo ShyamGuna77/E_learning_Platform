@@ -10,7 +10,7 @@ const validate = (schema) => (req, res, next) => {
   });
 
   if (!result.success) {
-    console.log("❌ Validation Error:", result.error.format()); // Debugging logs
+    console.log(" Validation Error:", result.error.format()); // Debugging logs
 
     return res.status(400).json({
       success: false,
@@ -21,7 +21,7 @@ const validate = (schema) => (req, res, next) => {
     });
   }
 
-  console.log("✅ Validation passed!"); // Debugging log
+  console.log(" Validation passed!"); // Debugging log
   next();
 };
 
